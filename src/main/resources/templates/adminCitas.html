@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard del Hospital</title>
+    <link rel="stylesheet" href="/css/adminHospital.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Hospital Salud</div>
+        <nav>
+            <ul>
+                <li><a href="/admin/inicio">Inicio</a></li>
+                <li><a href="/admin/pacientes">Paciente</a></li>
+                <li><a href="/admin/medicos">Médicos</a></li>
+                <li><a href="/admin/citas">Citas</a></li>
+                <li><a href="/admin/clinicas">Hospitales</a></li>
+                <li><a href="/admin/historial">Historial</a></li>
+                 <li><a href="/publico/inicio">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Menú</h2>
+            <ul>
+                <li><a href="/admin/inicio">Inicio</a></li>
+                <li><a href="/admin/pacientes">Paciente</a></li>
+                <li><a href="/admin/medicos">Médicos</a></li>
+                <li><a href="/admin/citas">Citas</a></li>
+                <li><a href="/admin/clinicas">Hospitales</a></li>
+                <li><a href="/admin/historial">Historial</a></li>
+                 <li><a href="/publico/inicio">Cerrar Sesión</a></li>
+            </ul>
+        </aside>
+        <main class="dashboard">
+            <h2>Resumen de citas</h2>
+            <section class="summary">
+                <div class="card">
+                    <h3>Pacientes Activos</h3>
+                    <p>Total: 150</p>
+                </div>
+                <div class="card">
+                    <h3>Médicos Registrados</h3>
+                    <p>Total: 30</p>
+                </div>
+                <div class="card">
+                    <h3>Citas Programadas</h3>
+                    <p>Total: 75</p>
+                </div>
+                <div class="card">
+                    <h3>Departamentos Disponibles</h3>
+                    <p>Total: 10</p>
+                </div>
+            </section>
+            <section class="calendar">
+                <h2>Registro de Citas</h2>
+                
+                <table>          
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Pacientes</th>
+                            <th>Doctor</th>
+                            <th>Especialista</th>
+                            <th>Dia</th>
+                            <th>Hora</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="cita : ${citas}">
+                            <td th:text="${cita.id}"></td>
+                            <td th:text="${cita.paciente.nombre}"></td>
+                            <td th:text="${cita.medico.nombre}"></td>
+                            <td th:text="${cita.medico.especialidad}"></td>
+                            <td th:text="${#dates.format(cita.fecha, 'dd-MM-yyyy')}"></td>
+                            <td th:text="${cita.hora}"></td>
+                            <td th:text="${cita.estado}"></td>
+                            <td>
+                                <div class="action-icons">
+                                    <!-- Ver detalles de la cita -->
+                                    <a th:href="@{/publico/buscar-cita(cedula=${cita.paciente.cedula})}" title="Ver">
+                                        <i class="fas fa-eye "></i>
+                                    </a>
+
+                                    <a th:href="@{/admin/confirmar-cita(idCita=${cita.id})}" title="Confirmar Cita">
+                                        <i class="fas fa-check-circle"></i>
+                                    </a>
+
+                                    <a th:href="@{/admin/cancelar-cita(idCita=${cita.id})}" title="Cancelar Cita">
+                                        <i class="fas fa-times-circle"></i>
+                                    </a>
+                        
+                                </div>
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </section>
+            
+        </main>
+    </div>
+
+</body>
+</html>

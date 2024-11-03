@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard del Hospital</title>
+    <link rel="stylesheet" href="/css/adminHospital.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Hospital Salud</div>
+        <nav>
+            <ul>
+                <li><a href="/admin/inicio">Inicio</a></li>
+                <li><a href="/admin/pacientes">Paciente</a></li>
+                <li><a href="/admin/medicos">Médicos</a></li>
+                <li><a href="/admin/citas">Citas</a></li>
+                <li><a href="/admin/clinicas">Hospitales</a></li>
+                <li><a href="/admin/historial">Historial</a></li>
+                 <li><a href="/publico/inicio">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Menú</h2>
+            <ul>
+                <li><a href="/admin/inicio">Inicio</a></li>
+                <li><a href="/admin/pacientes">Paciente</a></li>
+                <li><a href="/admin/medicos">Médicos</a></li>
+                <li><a href="/admin/citas">Citas</a></li>
+                <li><a href="/admin/clinicas">Hospitales</a></li>
+                <li><a href="/admin/historial">Historial</a></li>
+                 <li><a href="/publico/inicio">Cerrar Sesión</a></li>
+            </ul>
+        </aside>
+        <main class="dashboard">
+            
+            <section class="calendar">
+                <h2>Registro de Historiales</h2>
+                
+                <table>          
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Paciente</th>
+                            <th>Doctor</th>
+                            <th>Fecha</th>
+                            <th>Motivo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="historia : ${historial}">
+                            <td th:text="${historia.id}"></td>
+                            <td th:text="${historia.paciente.nombre}"></td>
+                            <td th:text="${historia.medico.nombre}"></td>
+                            <td th:text="${historia.fecha}"></td>
+                            <td th:text="${historia.motivo}"></td>
+                            
+                            <td>
+                                <div class="action-icons">
+                                    <a th:href="@{/publico/buscar-cita(cedula=${historia.paciente.cedula})}" title="Ver">
+                                        <i class="fas fa-eye "></i>
+                                    </a>
+                            
+                                    <a th:href="@{/admin/eliminar-historial?id=} + ${historia.id}"  title="Eliminar"><i class="fas fa-trash-alt"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </section>
+            
+        </main>
+    </div>
+
+</body>
+</html>

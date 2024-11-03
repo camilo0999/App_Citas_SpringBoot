@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz de Citas Médicas</title>
+    <link rel="stylesheet" href="/css/citas.css">
+</head>
+<body>
+    <!-- Header con barra de navegación -->
+    <header>
+        <h1>Clínica Salud y Bienestar</h1>
+        <nav>
+            <ul>
+                <li><a href="/publico/inicio">Inicio</a></li>
+                <li><a href="/publico/medicos">Médicos</a></li>
+                <li><a href="/publico/citas">Citas</a></li>
+                <li><a href="/publico/login">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de agendar cita -->
+    <main>
+        <section class="citas">
+            <h2>Agendar Cita Médica</h2>
+            <form th:action="@{/publico/registrar-cita}" method="post" th:object="${cita}">
+                <label for="cedula">Cédula:</label>
+                <input type="number" id="cedula" name="cedula" required>
+            
+                <label for="fecha">Fecha de la Cita:</label>
+                <input type="date" id="fecha" name="fecha" required th:field="*{fecha}">
+            
+                <label for="hora">Hora de la Cita:</label>
+                <input type="time" id="hora" name="hora" required th:field="*{hora}">
+            
+                <label for="medico">Médico:</label>
+                <select id="medico" name="medico">
+                    <option th:each="medico : ${medicos}" 
+                            th:value="${medico.id}" 
+                            th:text="${medico.especialidad + ' - Dr(a). ' + medico.nombre + ' ' + medico.apellido}">
+                    </option>
+                </select>
+            
+                <label for="sintomas">Descripción de los Síntomas:</label>
+                <textarea id="sintomas" name="sintomas" rows="4" placeholder="Describa sus síntomas aquí..." th:field="*{sintomas}"></textarea>
+            
+                <button type="submit">Agendar Cita</button>
+            </form>
+            
+        </section>
+
+        <!-- Sección para buscar cita -->
+        <section class="buscar-cita">
+            <h2>Buscar Cita Médica</h2>
+            <form id="cedula" action="/publico/buscar-cita" method="GET">
+                <label for="buscar-nombre">Cedula:</label>
+                <input type="number" id="cedula" name="cedula" placeholder="Ingrese su nombre completo" required>
+
+
+                <button type="submit">Buscar Cita</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Clínica Salud y Bienestar. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Hospital General</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Hospital General</h1>
+        <nav>
+            <ul>
+                <li><a href="/publico/inicio">Inicio</a></li>
+                <li><a href="/publico/medicos">Médicos</a></li>
+                <li><a href="/publico/citas">Citas</a></li>
+                <li><a href="/publico/login">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Sección de Bienvenida -->
+        <section id="inicio" class="bienvenida">
+            <h2>Bienvenido al Sistema de Gestión Hospitalaria</h2>
+            <p>Accede rápidamente a las secciones de pacientes, médicos, citas y estadísticas desde el menú superior.</p>
+
+            <div>
+                <button> <a class="link" href="/publico/citas"> Agendar Cita </a> </button>
+
+            </div>
+           
+        </section>
+
+        <!-- Sección de Información General -->
+        <section id="informacion">
+            <h3>¿Qué puedes hacer en este sistema?</h3>
+            <p>El Sistema de Gestión Hospitalaria facilita la administración de los recursos hospitalarios, desde el registro y seguimiento de pacientes hasta la gestión de citas y estadísticas de servicios. Con nuestro sistema, puedes mejorar la eficiencia en la gestión de información y ofrecer un mejor servicio a los pacientes.</p>
+        </section>
+        
+        <!-- Sección de Acceso Rápido -->
+        <section id="acceso-rapido">
+            <h3>Acceso Rápido</h3>
+            <div class="acceso-grid">
+                <div class="acceso-card" onclick="window.location.href='#pacientes'">
+                    <h4>Pacientes</h4>
+                    <p>Gestiona el registro y seguimiento de los pacientes.</p>
+                </div>
+                <div class="acceso-card" onclick="window.location.href='#medicos'">
+                    <h4>Médicos</h4>
+                    <p>Administra la información de los médicos y su disponibilidad.</p>
+                </div>
+                <div class="acceso-card" onclick="window.location.href='#citas'">
+                    <h4>Citas</h4>
+                    <p>Programa y gestiona las citas de los pacientes.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Hospital General - Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

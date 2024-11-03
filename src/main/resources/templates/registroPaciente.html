@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Paciente</title>
+    <link rel="stylesheet" href="/css/pacientes.css">
+</head>
+<body>
+    <header>
+        <h1>Registro de Paciente</h1>
+        <nav>
+            <ul>
+                <li><a href="/publico/inicio">Inicio</a></li>
+                <li><a href="/publico/medicos">Médicos</a></li>
+                <li><a href="/publico/citas">Citas</a></li>
+                <li><a href="/publico/login">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="registro-paciente">
+            <form id="form-registro" action="#" th:action="@{/publico/guardar-paciente}" method="POST" th:object="${paciente}">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required th:field="*{nombre}">
+                </div>
+            
+                <div class="form-group">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" required th:field="*{apellido}">
+                </div>
+            
+                <div class="form-group">
+                    <label for="cedula">Cédula:</label>
+                    <input type="text" id="cedula" name="cedula" required th:field="*{cedula}">
+                </div>
+            
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required th:field="*{email}">
+                </div>
+            
+                <div class="form-group">
+                    <label for="domicilio">Domicilio:</label>
+                    <input type="text" id="domicilio" name="domicilio" required th:field="*{domicilio}">
+                </div>
+            
+                <div class="form-group">
+                    <label for="ciudad">Ciudad:</label>
+                    <input type="text" id="ciudad" name="ciudad" required th:field="*{ciudad}">
+                </div>
+            
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required th:field="*{telefono}">
+                </div>
+            
+                <div class="form-group">
+                    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                    <input type="date" id="fechaNacimiento" name="fechaNacimiento" required th:field="*{fechaNacimiento}">
+                </div>
+            
+                <div class="form-group">
+                    <label for="genero">Género:</label>
+                    <select id="genero" name="genero" required th:field="*{genero}">
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+            
+                <button type="submit">Registrar Paciente</button>
+            </form>
+            
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Clínica Salud y Bienestar. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

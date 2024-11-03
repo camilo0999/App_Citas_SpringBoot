@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Cita Médica</title>
+   
+    <style>
+        /* Reset de estilos básicos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Estilo del encabezado */
+        header {
+            background: #007BFF;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        /* Navegación */
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo del contenido principal */
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            flex: 1; /* Esto permite que el main ocupe el espacio disponible */
+        }
+
+        .buscar-cita {
+            background: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .resultados {
+            margin-top: 20px;
+        }
+
+        .resultados h3 {
+            color: #333;
+        }
+
+        .resultados ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resultados li {
+            background: #f9f9f9;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo del pie de página */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #007BFF;
+            color: #ffffff;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header con barra de navegación -->
+    <header>
+        <h1>Clínica Salud y Bienestar</h1>
+        <nav>
+            <ul>
+                <li><a href="/publico/inicio">Inicio</a></li>
+                <li><a href="/publico/medicos">Médicos</a></li>
+                <li><a href="/publico/citas">Citas</a></li>
+                <li><a href="/publico/login">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección para buscar cita -->
+    <main>
+        <section class="buscar-cita">
+            <!-- Resultados de la búsqueda -->
+            <div class="resultados" th:if="${resultados}">
+                <h3>Resultados de la Búsqueda</h3>
+                <ul>
+                    <li th:each="cita : ${resultados}">
+                        <p>
+                            Cedula: <span th:text="${cita.paciente.cedula}"></span><br>
+                            Nombre: <span th:text="${cita.paciente.nombre}"></span><br>
+                            Estado: <span th:text="${cita.estado}"></span><br>
+                            Médico: <span th:text="${cita.medico.nombre + ' ' + cita.medico.apellido}"></span><br>
+                            Fecha: <span th:text="${#dates.format(cita.fecha, 'dd/MM/yyyy')}"></span><br>
+                            Hora: <span th:text="${cita.hora}"></span><br>
+                            Síntomas: <span th:text="${cita.sintomas}"></span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Clínica Salud y Bienestar. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

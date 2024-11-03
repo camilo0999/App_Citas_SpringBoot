@@ -1,0 +1,227 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Estilos de encabezado */
+header {
+    background-color: #4a90e2; /* Azul suave */
+    color: white;
+    padding: 1.5em 0; /* Espaciado aumentado */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+header h1 {
+    margin-bottom: 0.5em; /* Espaciado inferior */
+}
+
+/* Navegación */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 3em; /* Espaciado aumentado */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s; /* Transición de color */
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #ffcc00; /* Color dorado al hover */
+}
+
+/* Estilos principales */
+main {
+    max-width: 1200px;
+    margin: 2em auto;
+    padding: 1.5em; /* Espaciado aumentado */
+}
+
+/* Sección de bienvenida */
+.bienvenida {
+    text-align: center;
+    padding: 2em;
+    background-image: url("../img/images.jpeg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-bottom: 2em;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Color de texto blanco para mejor contraste */
+}
+
+.bienvenida h2 {
+    color: #ffcc00; /* Color dorado */
+    margin-bottom: 2rem;
+    font-size: 3rem;
+}
+
+.bienvenida p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+button {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 0.75em 1.5em; /* Padding aumentado */
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1em;
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones mejoradas */
+}
+
+button:hover {
+    background-color: #357ab7;
+    transform: translateY(-2px); /* Levantar el botón al pasar el mouse */
+}
+
+/* Sección de información */
+#informacion {
+    margin-bottom: 2em;
+}
+
+#informacion h3 {
+    color: #4a90e2;
+    margin-bottom: 0.5em;
+}
+
+/* Sección de acceso rápido */
+#acceso-rapido {
+    text-align: center;
+}
+
+.acceso-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5em; /* Espaciado aumentado */
+    margin-top: 1em;
+}
+
+.acceso-card {
+    background-color: #ffffff;
+    padding: 1.5em; /* Padding aumentado */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Transición más suave */
+}
+
+.acceso-card:hover {
+    transform: scale(1.05);
+}
+
+.acceso-card h4 {
+    color: #4a90e2;
+    margin-bottom: 0.5em;
+}
+
+/* Estilos del pie de página */
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #333;
+    color: white;
+    font-size: 0.9em; /* Tamaño de fuente ajustado */
+}
+
+
+/* Estilos para el formulario */
+form {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 2em; /* Padding alrededor del formulario */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    max-width: 600px; /* Ancho máximo del formulario */
+    margin: 2em auto; /* Centrado en la página */
+}
+
+/* Estilo de los encabezados dentro del formulario */
+form h2 {
+    color: #4a90e2; /* Color azul */
+    margin-bottom: 1em; /* Espaciado inferior */
+    text-align: center; /* Centrado */
+}
+
+
+
+/* Estilo de los campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+textarea {
+    width: 100%; /* Ancho completo */
+    padding: 0.75em; /* Espaciado interno */
+    margin-bottom: 1.5em; /* Espaciado inferior */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 1em; /* Tamaño de fuente */
+    transition: border-color 0.3s; /* Transición de color de borde */
+}
+
+/* Cambios en el borde al enfocar el campo de entrada */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+    border-color: #4a90e2; /* Borde azul al enfocar */
+    outline: none; /* Sin contorno por defecto */
+}
+
+/* Estilo para etiquetas */
+label {
+    display: block; /* Mostrar como bloque */
+    margin-bottom: 0.5em; /* Espaciado inferior */
+    font-weight: bold; /* Texto en negrita */
+    color: #333; /* Color de texto */
+}
+
+/* Estilo para los botones del formulario */
+button[type="submit"] {
+    background-color: #4a90e2; /* Fondo azul */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 0.75em 1.5em; /* Padding */
+    font-size: 1.2em; /* Tamaño de fuente */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor tipo puntero */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones mejoradas */
+    display: block; /* Bloque para centrado */
+    margin: 0 auto; /* Centrado horizontal */
+}
+
+button[type="submit"]:hover {
+    background-color: #357ab7; /* Color más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Levantar el botón al pasar el mouse */
+}
+
+/* Estilo para mensajes de error */
+.error-message {
+    color: red; /* Color rojo */
+    font-size: 0.9em; /* Tamaño de fuente */
+    margin-top: -1em; /* Espaciado negativo para acercar al campo */
+    margin-bottom: 1.5em; /* Espaciado inferior */
+}
+

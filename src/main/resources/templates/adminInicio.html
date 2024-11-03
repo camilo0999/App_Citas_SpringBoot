@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Citas Médicas</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css" rel="stylesheet">
+    <!-- FullCalendar JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">Clínica Salud</div>
+        <nav>
+            <ul>
+                <li><a href="/admin/inicio">Inicio</a></li>
+                <li><a href="/admin/pacientes">Paciente</a></li>
+                <li><a href="/admin/medicos">Médicos</a></li>
+                <li><a href="/admin/citas">Citas</a></li>
+                <li><a href="/admin/clinicas">Hospitales</a></li>
+                <li><a href="/admin/historial">Historial</a></li>
+                 <li><a href="/publico/inicio">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Menú</h2>
+            <ul>
+                <li><a href="/admin/inicio">Inicio</a></li>
+                <li><a href="/admin/pacientes">Paciente</a></li>
+                <li><a href="/admin/medicos">Médicos</a></li>
+                <li><a href="/admin/citas">Citas</a></li>
+                <li><a href="/admin/clinicas">Hospitales</a></li>
+                <li><a href="/admin/historial">Historial</a></li>
+                 <li><a href="/publico/inicio">Cerrar Sesión</a></li>
+            </ul>
+        </aside>
+        <main class="dashboard">
+            <h2>Resumen de Citas</h2>
+            <section class="summary">
+                <div class="card">
+                    <h3>Pendientes</h3>
+                    <p>Total: <span th:text="${Pediente}"></span></p>
+                </div>
+                <div class="card">
+                    <h3>Confirmadas</h3>
+                    <p>Total: <span th:text="${Confirmada}"></span></p>
+                </div>
+                <div class="card">
+                    <h3>Canceladas</h3>
+                    <p>Total: <span th:text="${Cancelada}"></span></p>
+                </div>
+                <div class="card">
+                    <h3>Registradas</h3>
+                    <p>Total: <span th:text="${Total}"></span></p>
+                </div>
+                
+            </section>
+            
+            <section class="calendar">
+                <h2>Calendario de Citas</h2>
+                <div id="calendar" class="calendar-placeholder"></div>
+            </section>
+            
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'es',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                events: '/admin/api/citas', 
+            });
+
+            calendar.render();
+        });
+    </script>
+    
+</body>
+</html>

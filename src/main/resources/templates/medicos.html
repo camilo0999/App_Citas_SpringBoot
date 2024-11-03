@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz de Médicos</title>
+    <link rel="stylesheet" href="/css/medicos.css">
+</head>
+<body>
+    <!-- Header con barra de navegación -->
+    <header>
+        <h1>Clínica Salud y Bienestar</h1>
+        <nav>
+            <ul>
+                <li><a href="/publico/inicio">Inicio</a></li>
+                <li><a href="/publico/medicos">Médicos</a></li>
+                <li><a href="/publico/citas">Citas</a></li>
+                <li><a href="/publico/login">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de bienvenida -->
+    <section class="bienvenida">
+        <h2>Nuestros Médicos</h2>
+        <p>Conozca a nuestro equipo de profesionales de la salud, comprometidos en brindarle la mejor atención médica personalizada.</p>
+        <button>Contáctenos</button>
+    </section>
+
+    <!-- Información de médicos -->
+    <main>
+        <section id="informacion">
+            <h3>Equipo Médico</h3>
+            <p>Contamos con especialistas en diversas áreas de la salud, listos para ayudarle en cada paso de su tratamiento.</p>
+
+            <div class="acceso-grid">
+                <!-- Tarjeta de médico -->
+                <div th:each="medico : ${medicos}" class="acceso-card">
+                    <h4 th:text="${medico.nombre} + ' ' + ${medico.apellido}">Dr. Juan Pérez</h4>
+                    <p th:text="'Hospital en ' + ${medico.hospital.nombre}">Especialista en Cardiología</p>
+                    <p th:text="'Cuidad: ' + ${medico.hospital.ciudad}">Especialista en Cardiología</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Clínica Salud y Bienestar. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,11 @@
+package com.electiva.citas.repositorios;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.electiva.citas.modelos.Historial;
+
+@Repository
+public interface HistorialRepository extends JpaRepository<Historial, Long> {
+    
+}
